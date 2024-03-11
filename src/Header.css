@@ -1,0 +1,33 @@
+.headerContainer {
+    display: grid;
+    height: 30px;
+    grid-template-rows: 100%;
+    grid-template-columns: repeat(3, 1fr);
+    grid-template-areas: "menu logo basket";
+    column-gap: 20%;
+
+    margin: 10px;
+    background-color: white;
+}
+
+.headerColumn {
+    display: flex;
+}
+
+#headerMenuIcon {
+    height: 25px;
+    justify-content: left;
+    grid-area: menu;
+}
+
+#headerLogo {
+    height: 25px;
+    justify-content: center;
+    grid-area: logo;
+}
+
+#headerBasketIcon {
+    height: 25px;
+    justify-content: right;
+    grid-area: basket;
+}

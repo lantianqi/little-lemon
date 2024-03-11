@@ -1,0 +1,15 @@
+nav {
+    display: flex;
+    align-items: center;
+}
+
+ul {
+    display: inline-flex;
+    background-color: blanchedalmond;
+}
+
+li {
+    list-style-type: none;
+    min-width: 10rem;
+    margin: auto;
+}

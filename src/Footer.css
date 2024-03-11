@@ -1,0 +1,30 @@
+footer {
+    background-color: beige;
+    display: grid;
+    height: 80px;
+    grid-template-rows: 100%;
+    grid-template-columns: repeat(4, 1fr);
+    grid-template-areas: "logo doormatNav contact socialMedia";
+}
+
+.footerColumn {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+#footerLogo {
+    grid-area: logo;
+}
+
+#footerDoormatNav {
+    grid-area: doormatNav;
+}
+
+#footerContact {
+    grid-area: contact;
+}
+
+#footerSocialMedia {
+    grid-area: socialMedia;
+}
