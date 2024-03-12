@@ -4,7 +4,9 @@ import "./Nav.css";
 function Nav() {
   return (
     <nav>
-      <img src={logo} height={30} alt="logo" />
+      <div id="navLogo">
+        <img src={logo} height={40} alt="logo" />
+      </div>
       <ul>
         <li>
           <a href="home">Home</a>
