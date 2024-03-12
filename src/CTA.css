@@ -1,0 +1,29 @@
+@import url('https://fonts.googleapis.com/css?family=Karla');
+@import url('https://fonts.googleapis.com/css?family=Markazi Text');
+
+.heroContainer {
+    display: grid;
+    grid-template-columns: repeat(12, [col-start] 1fr);
+    gap: 10px;
+    /* width: 80px; */
+    margin: 0 auto;
+    font: "Markazi Text";
+    background-color: #495E57;
+}
+
+#CTATitles {
+    grid-column: col-start 3 / span 3;
+}
+
+.title {
+    font-size: 64;
+    font-weight: 700;
+    color: #F4CE14;
+    margin-bottom: 0;
+}
+
+.subTitle {
+    font-size: 40;
+    color: white;
+    margin-top: -100;
+}
