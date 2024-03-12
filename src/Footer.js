@@ -5,16 +5,64 @@ function Footer() {
   return (
     <footer>
       <div id="footerLogo" className="footerColumn">
-        <img src={logo} height={70} alt="logo" />
+        <img src={logo} height={100} alt="logo" />
       </div>
       <div id="footerDoormatNav" className="footerColumn">
-        doormatNav
+        <div className="footerColumnTitle">
+          Doormat Navigation
+        </div>
+        <ul>
+          <li>
+            Home
+          </li>
+          <li>
+            About
+          </li>
+          <li>
+            Menu
+          </li>
+          <li>
+            Reservations
+          </li>
+          <li>
+            Order Online
+          </li>
+          <li>
+            Login
+          </li>
+        </ul>
       </div>
       <div id="footerContact" className="footerColumn">
-        contact
+        <div className="footerColumnTitle">
+          Doormat Navigation
+        </div>
+        <ul>
+          <li>
+            Address
+          </li>
+          <li>
+            Phone Number
+          </li>
+          <li>
+            Email
+          </li>
+        </ul>
       </div>
       <div id="footerSocialMedia" className="footerColumn">
-        socialMedia
+        <div className="footerColumnTitle">
+          Doormat Navigation
+        </div>
+        <ul>
+          <li>
+            Instagram
+          </li>
+          <li>
+            Facebook
+          </li>
+          <li>
+            TikTok
+          </li>
+        </ul>
       </div>
     </footer>
   );
