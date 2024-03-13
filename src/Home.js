@@ -1,11 +1,14 @@
 import Nav from "./Nav";
-import Hero from "./Hero";
+import CTA from "./CTA";
+import Footer from "./Footer";
+
 
 function Home() {
   return (
     <>
       <Nav />
-      <Hero />
+      <CTA />
+      <Footer />
     </>
   );
 }

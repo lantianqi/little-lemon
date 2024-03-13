@@ -1,12 +1,27 @@
-import "./CTA.css";
+import cta_image from "./assets/restauranfood.jpg";
+import Button1 from "./Button1";
+
 
 function Hero() {
   return (
-    <div className="heroContainer">
-      <div id="CTATitles">
-        <h1 className="title">Little Lemon</h1>
-        <h2 className="subTitle">Chicago</h2>
+    <div className="cta-container">
+
+      <div id="cta-left">
+        <h1 className="cta-title">Little Lemon</h1>
+        <h2 className="cta-subtitle">Chicago</h2>
+        <p className="cta-p">We are a family owned Mediterranean restaurant,
+          focused on traditional recipes served with
+          a modern twist.
+        </p>
+        <Button1 text="Reserve a Table" />
       </div>
+
+      <div id="cta-right">
+        <div id="cta-image">
+          <img src={cta_image} alt="serve food photo" />
+        </div>
+      </div>
+
     </div>
   );
 }

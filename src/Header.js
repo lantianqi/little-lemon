@@ -1,7 +1,6 @@
 import menu from "./assets/menu.svg";
 import basket from "./assets/basket.svg";
 import logo from "./assets/logo.jpg";
-import "./Header.css";
 
 function Header() {
   return (

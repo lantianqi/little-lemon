@@ -1,5 +1,4 @@
 import logo from "./assets/vertical-logo.png";
-import "./Footer.css";
 
 function Footer() {
   return (
@@ -34,7 +33,7 @@ function Footer() {
       </div>
       <div id="footerContact" className="footerColumn">
         <div className="footerColumnTitle">
-          Doormat Navigation
+          Contact
         </div>
         <ul>
           <li>
@@ -50,7 +49,7 @@ function Footer() {
       </div>
       <div id="footerSocialMedia" className="footerColumn">
         <div className="footerColumnTitle">
-          Doormat Navigation
+          Social Media Links
         </div>
         <ul>
           <li>
