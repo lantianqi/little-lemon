@@ -2,9 +2,12 @@ import Header from "./Header";
 import Nav from "./Nav";
 import Footer from "./Footer";
 import CTA from "./CTA";
+import Specials from "./Specials";
 import Home from "./Home";
 import "./App.css";
-import { Routes, Route, Link } from "react-router-dom";
+import "./styles.css";
+
+import { Routes, Route } from "react-router-dom";
 
 function App() {
   return (
@@ -18,6 +21,7 @@ function App() {
         <Route></Route>
 
       </Routes>
+      <Specials />
 
       <Footer />
 
