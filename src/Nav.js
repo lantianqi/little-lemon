@@ -1,5 +1,4 @@
-import { Routes, Route, Link } from "react-router-dom";
-import Home from "./Home";
+import { Link } from "react-router-dom";
 
 import logo from "./assets/logo.jpg";
 

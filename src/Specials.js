@@ -4,6 +4,8 @@ import greek_salad from "./assets/greek_salad.jpg";
 import bruchetta from "./assets/bruchetta.jpg";
 import lemon_dessert from "./assets/lemon_dessert.jpg";
 
+import { Link } from "react-router-dom";
+
 import "./Specials.css";
 
 const cards = [
@@ -52,7 +54,9 @@ function Specials() {
           This week's specials!
         </h1>
         <div id="specials-top-button">
-          <Button1 text="Online Menu"/>
+          <Link to="/menu" className="button-link">
+            <Button1 text="Online Menu" />
+          </Link>
         </div>
       </div>
 
@@ -61,7 +65,7 @@ function Specials() {
           {<CardsList data={cards} />}
         </div>
       </div>
-      
+
     </div>
   )
 }

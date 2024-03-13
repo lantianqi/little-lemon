@@ -58,7 +58,7 @@ nav>#nav-logo {
   height: 100%;
   grid-column: col-start 3 / span 2;
   display: flex;
-  justify-content: start;
+  justify-content: flex-start;
   align-items: center;
 }
 
@@ -77,6 +77,7 @@ nav>#nav-links {
 .nav-item {
   color: black;
   background-color: aliceblue;
+  text-decoration: none;
 }
 
 /*
@@ -90,6 +91,11 @@ Button1 CSS
   display: flex;
   justify-content: center;
   align-items: center;
+  color: black;
+}
+
+.button-link {
+  text-decoration: none;
 }
 
 /*
