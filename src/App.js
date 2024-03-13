@@ -1,9 +1,9 @@
 import Header from "./Header";
 import Nav from "./Nav";
 import Footer from "./Footer";
-import CTA from "./CTA";
-import Specials from "./Specials";
 import Home from "./Home";
+import Chicago from "./Chicago";
+import Menu from "./Menu";
 import "./App.css";
 import "./styles.css";
 
@@ -16,12 +16,11 @@ function App() {
       <Nav />
 
       <Routes>
-        <Route path="/" element={<CTA />}></Route>
-        <Route></Route>
-        <Route></Route>
-
+        <Route path="/" element={<Home />}></Route>
+        <Route path="/home" element={<Home />}></Route>
+        <Route path="/about" element={<Chicago />}></Route>
+        <Route path="/menu" element={<Menu />}></Route>
       </Routes>
-      <Specials />
 
       <Footer />
 

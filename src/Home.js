@@ -1,14 +1,11 @@
-import Nav from "./Nav";
 import CTA from "./CTA";
-import Footer from "./Footer";
-
+import Specials from "./Specials";
 
 function Home() {
   return (
     <>
-      <Nav />
       <CTA />
-      <Footer />
+      <Specials />
     </>
   );
 }

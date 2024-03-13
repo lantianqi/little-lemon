@@ -198,3 +198,37 @@ footer {
   padding-left: 0;
   margin-top: 0;
 }
+
+/*
+Chicago CSS
+*/
+.chicago {
+  height: 400px;
+  background-color: #FBDABB;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.chicago h1 {
+  font-size: 40pt;
+  margin-top: 0;
+  margin-bottom: 0;
+}
+
+/*
+Menu CSS
+*/
+.menu {
+  height: 400px;
+  background-color: #FBDABB;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.menu h1 {
+  font-size: 40pt;
+  margin-top: 0;
+  margin-bottom: 0;
+}
