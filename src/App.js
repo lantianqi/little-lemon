@@ -4,6 +4,7 @@ import Footer from "./Footer";
 import Home from "./Home";
 import Chicago from "./Chicago";
 import Menu from "./Menu";
+import Booking from "./Booking";
 import "./App.css";
 import "./styles.css";
 
@@ -16,10 +17,11 @@ function App() {
       <Nav />
 
       <Routes>
-        <Route path="/" element={<Home />}></Route>
-        <Route path="/home" element={<Home />}></Route>
-        <Route path="/about" element={<Chicago />}></Route>
-        <Route path="/menu" element={<Menu />}></Route>
+        <Route path="/" element={<Home />} />
+        <Route path="/home" element={<Home />} />
+        <Route path="/about" element={<Chicago />} />
+        <Route path="/menu" element={<Menu />} />
+        <Route path="/reservations" element={<Booking />} />
       </Routes>
 
       <Footer />
