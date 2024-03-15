@@ -1,8 +1,10 @@
 import BookingForm from "./BookingForm";
 
+import "./Booking.css";
+
 function Booking() {
   return (
-    <div>
+    <div id="booking-container">
       <BookingForm />
       Booking Page
     </div>

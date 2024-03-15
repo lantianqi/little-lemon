@@ -1,6 +1,37 @@
+import "./BookingForm.css";
+import Button1 from "./Button1";
+import { useState } from "react";
+
 function BookingForm() {
-  return (
-    <form>
+  const [tableInfoConfirmed, setTableInfoConfirmed] = useState(false);
+  const [contactInfoConfirmed, setContactInfoConfirmed] = useState(false);
+  const [overviewConfirmed, setOverviewConfirmed] = useState(false);
+  const [allConfirmed, setAllConfirmed] = useState(false);
+  const [formData, setFormData] = useState({});
+
+  function updateTableInfo() {
+    setTableInfoConfirmed(true);
+  }
+
+  function updateContactInfo() {
+    setContactInfoConfirmed(true);
+  }
+
+  function updateOverviewConfirmed() {
+    setOverviewConfirmed(true);
+  }
+
+  function updateContactInfo(e) {
+    // e.preventDefaultEvent();
+    setContactInfoConfirmed(true);
+  }
+
+  function updateAllConfirmed() {
+    setAllConfirmed(true);
+  }
+
+  const tableForm = (
+    <form id="booking-form">
       <label htmlFor="res-date">Choose date</label>
       <input type="date" id="res-date" />
 
@@ -23,9 +54,30 @@ function BookingForm() {
         <option>Engagement</option>
         <option>Anniversary</option>
       </select>
-      <input type="submit" value="Make Your reservation"></input>
+
+      <label for="preference">Preference</label>
+      <select id="preference">
+        <option>Inside</option>
+        <option>Outside</option>
+      </select>
+
+      {/* <input type="submit" value="Make Your reservation"></input> */}
+      <Button1 text="Make Your Reservation"
+        onClick={updateTableInfo}
+      />
     </form>
   );
+
+  if (!tableInfoConfirmed) {
+    return tableForm;
+  } else if (!contactInfoConfirmed) {
+    return <Button1 text="contact" onClick={updateContactInfo} />;
+  }
+  else if (!overviewConfirmed) {
+    return <Button1 text="overview" onClick={updateOverviewConfirmed} />;
+  } else if (!allConfirmed) {
+    return <Button1 text="confirmed" onClick={updateAllConfirmed} />;
+  }
 }
 
 export default BookingForm;
