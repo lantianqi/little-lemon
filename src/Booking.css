@@ -1,7 +1,32 @@
-#booking-container {
+#booking_container {
   display: grid;
-  height: 250px;
+  /* height: 250px; */
+  grid-template-rows: repeat(3, [row-start] 1fr);
   grid-template-columns: repeat(12, [col-start] 1fr);
   gap: 10px;
   margin: 0 auto;
+}
+
+.booking_sub_container {
+  display: flex;
+  justify-content: center;
+  align-items: center
+}
+
+#before_booking_form {
+  grid-row: row-start 1 / span 1;
+  grid-column: col-start 3 / span 8;
+  background-color: aliceblue;
+}
+
+#booking_form_container {
+  grid-row: row-start 2 / span 1;
+  grid-column: col-start 3 / span 8;
+  background-color: rgb(241, 240, 255);
+}
+
+#after_booking_form {
+  grid-row: row-start 3 / span 1;
+  grid-column: col-start 3 / span 8;
+  background-color: rgb(255, 240, 254);
 }
