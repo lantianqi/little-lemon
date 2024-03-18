@@ -9,13 +9,13 @@ function Card(props) {
 
       <div className="card-main">
         <div className="card-food-name">
-          <h1>{props.food_name}</h1>
+          <h1 className="card_title">{props.food_name}</h1>
         </div>
         <div className="card-food-price">
-          <p>{props.food_price}</p>
+          <p className="highlight_text">{props.food_price}</p>
         </div>
         <div className="card-food-description">
-          <p>{props.food_description}</p>
+          <p className="paragraph_text">{props.food_description}</p>
         </div>
         <div className="card-order-delivery">Order a delievery</div>
       </div>

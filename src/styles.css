@@ -1,3 +1,88 @@
+@import url('https://fonts.googleapis.com/css?family=Karla');
+@import url('https://fonts.googleapis.com/css?family=Markazi Text');
+
+/* Fonts CSS */
+
+/*
+100	Thin (Hairline)
+200	Extra Light (Ultra Light)
+300	Light
+400	Normal (Regular)
+500	Medium
+600	Semi Bold (Demi Bold)
+700	Bold
+800	Extra Bold (Ultra Bold)
+900	Black (Heavy)
+950	Extra Black (Ultra Black)
+*/
+
+:root {
+  --color: #00ff00;
+  --font-regular: 400;
+  --font-medium: 500;
+  --font-bold: 700;
+  --font-extra-bold: 800;
+}
+/* Markazi Text */
+.display_title {
+  font-family: 'Markazi Text', 'Georgia', system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+  font-size: 64px;
+  font-weight: var(--font-medium);
+  margin-top: 15px;
+  margin-bottom: 0;
+}
+
+.subtitle {
+  font-family: 'Markazi Text', 'Georgia', system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+  font-size: 40px;
+  font-weight: var(--font-regular);
+  margin-top: 0;
+  margin-bottom: 0;
+}
+
+/* Karla */
+.lead_text {
+  font-family: 'Karla', 'Georgia', system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+  font-size: 18px;
+  font-weight: var(--font-medium);
+  margin-top: 5px;
+  margin-bottom: 5px;
+}
+
+.section_title {
+  font-family: 'Karla', 'Georgia', system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+  font-size: 20px;
+  font-weight: var(--font-extra-bold);
+  text-transform: uppercase;
+}
+
+.section_categories {
+  font-family: 'Karla', 'Georgia', system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+  font-size: 16px;
+  font-weight: var(--font-extra-bold);
+}
+
+.card_title {
+  font-family: 'Karla', 'Georgia', system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+  font-size: 18px;
+  font-weight: var(--font-bold);
+}
+
+.paragraph_text {
+  font-family: 'Karla', 'Georgia', system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+  font-size: 16px;
+  font-weight: var(--font-regular);
+  /* height: 1.5lh; */
+  max-width: 65ch;
+}
+
+.highlight_text {
+  font-family: 'Karla', 'Georgia', system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+  font-size: 16px;
+  font-weight: var(--font-bold);
+  color: #EE9972;
+}
+
 /*
 Header CSS
 */
@@ -38,8 +123,7 @@ Header CSS
 /*
 Nav CSS
 */
-@import url('https://fonts.googleapis.com/css?family=Karla');
-@import url('https://fonts.googleapis.com/css?family=Markazi Text');
+
 
 nav {
   display: grid;
@@ -69,8 +153,7 @@ nav>#nav-links {
   justify-content: space-around;
   align-items: center;
   margin: 0;
-  font-weight: 700;
-  font-size: medium;
+  font-weight: var(--font-medium);
   color: black;
 }
 
@@ -95,22 +178,20 @@ Button1 CSS
 }
 
 .button-link {
+  display: block;
+  width: fit-content;
   text-decoration: none;
 }
 
 /*
 CTA CSS
 */
-@import url('https://fonts.googleapis.com/css?family=Karla');
-@import url('https://fonts.googleapis.com/css?family=Markazi Text');
-
 .cta-container {
   display: grid;
   grid-template-columns: repeat(12, [col-start] 1fr);
   gap: 10px;
   height: 260px;
   margin-bottom: 100px;
-  font-family: 'Markazi Text', 'Georgia', system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
   background-color: #495E57;
 }
 
@@ -118,21 +199,15 @@ CTA CSS
   grid-column: col-start 3 / span 3;
 }
 
-.cta-title {
-  font-size: 64;
-  font-weight: 700;
+.cta_title {
   color: #F4CE14;
-  margin-bottom: 0;
 }
 
 .cta-subtitle {
-  font-size: 40;
   color: white;
-  margin-top: 0;
 }
 
 .cta-p {
-  font-size: 18;
   color: white;
 }
 
@@ -156,9 +231,6 @@ CTA CSS
 /*
 Footer CSS
 */
-@import url('https://fonts.googleapis.com/css?family=Karla');
-@import url('https://fonts.googleapis.com/css?family=Markazi Text');
-
 footer {
   display: grid;
   height: 150px;
@@ -217,7 +289,7 @@ Chicago CSS
 }
 
 .chicago h1 {
-  font-size: 40pt;
+  font-size: 40px;
   margin-top: 0;
   margin-bottom: 0;
 }
@@ -234,7 +306,7 @@ Menu CSS
 }
 
 .menu h1 {
-  font-size: 40pt;
+  font-size: 40px;
   margin-top: 0;
   margin-bottom: 0;
 }
