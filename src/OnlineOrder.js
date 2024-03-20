@@ -2,19 +2,17 @@ import Footer from "./Footer";
 import Header from "./Header";
 import Nav from "./Nav";
 
-function Menu() {
+function OnlineOrder() {
   return (
     <>
       <Header />
       <Nav />
-      <div className="menu">
-        <div className="menu-content">
-          <h1>Menu</h1>
-        </div>
+      <div className="online_order_container">
+        <h1>Online Order</h1>
       </div>
       <Footer />
     </>
   );
 }
 
-export default Menu;
+export default OnlineOrder;

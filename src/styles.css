@@ -310,3 +310,37 @@ Menu CSS
   margin-top: 0;
   margin-bottom: 0;
 }
+
+/*
+OnlineOrder CSS
+*/
+.online_order_container {
+  height: 400px;
+  background-color: #FBDABB;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.online_order_container h1 {
+  font-size: 40px;
+  margin-top: 0;
+  margin-bottom: 0;
+}
+
+/*
+Login CSS
+*/
+.login_container {
+  height: 400px;
+  background-color: #FBDABB;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.login_container h1 {
+  font-size: 40px;
+  margin-top: 0;
+  margin-bottom: 0;
+}

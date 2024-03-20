@@ -1,9 +1,15 @@
 import BookingForm from "./BookingForm";
 
-import "./Booking.css";
+import "./BookingPage.css";
+import Footer from "./Footer";
+import Header from "./Header";
+import Nav from "./Nav";
 
-function Booking() {
+function BookingPage() {
   return (
+    <>
+      <Header />
+    <Nav />
     <div id="booking_container">
 
       <div id="before_booking_form" className="booking_sub_container">
@@ -19,7 +25,9 @@ function Booking() {
       </div>
 
     </div>
+    <Footer />
+    </>
   );
 }
 
-export default Booking;
+export default BookingPage;
