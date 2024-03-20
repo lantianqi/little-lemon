@@ -1,15 +1,9 @@
 import BookingForm from "./BookingForm";
-
 import "./BookingPage.css";
-import Footer from "./Footer";
-import Header from "./Header";
-import Nav from "./Nav";
 
-function BookingPage(availableTimes,  dispatch) {
+function BookingPage(props) {
   return (
     <>
-      <Header />
-      <Nav />
       <div id="booking_container">
 
         <div id="before_booking_form" className="booking_sub_container">
@@ -17,7 +11,7 @@ function BookingPage(availableTimes,  dispatch) {
         </div>
 
         <div id="booking_form_container" className="booking_sub_container">
-          <BookingForm availableTimes={availableTimes} dispatch={dispatch} />
+          <BookingForm availableTimes={props.availableTimes} dispatch={props.dispatch} />
         </div>
 
         <div id="after_booking_form" className="booking_sub_container">
@@ -25,7 +19,6 @@ function BookingPage(availableTimes,  dispatch) {
         </div>
 
       </div>
-      <Footer />
     </>
   );
 }

@@ -2,10 +2,10 @@ import "./BookingForm.css";
 import Button1 from "./Button1";
 import { useState } from "react";
 
-function BookingForm(availableTimes, dispatch) {
+function BookingForm(props) {
   const [formData, setFormData] = useState({
     res_date: "",
-    res_time: "17:00",
+    res_time: "",
     res_guests: 1,
     res_occasion: "Select",
     res_preference: "Select",
@@ -49,39 +49,54 @@ function BookingForm(availableTimes, dispatch) {
     setAllConfirmed(true);
   }
 
-  function timesList(availableTimes) {
-    const timesOptionsList =
-      availableTimes.map((t) => {
-        return <option key={"time_" + t}>{t}</option>;
-      });
-    return timesOptionsList;
-  }
+  const TimesList = (props) => {
+    const timesList = props.availableTimes?.map((t, index) => {
+      return (
+        <option
+          id={"option" + index}
+          key={"option" + index}
+          className="time_slot"
+        >
+          {t}
+        </option>
+      );
+    });
+    return timesList;
+  };
+
+  const handleDateChange = (e) => {
+    updateFormField(e);
+    const selectedDate = e.target.value;
+    console.log(selectedDate);
+    // props.dispatch({type: "SELECT", selectedDate});
+  };
 
   const tableForm = (
     <form className="booking_form_view" id="table_form_view">
+      <h1>Book Now</h1>
 
       <div className="form_fields">
         <label htmlFor="res_date">Choose date</label>
-        <input type="date" id="res_date" value={formData.res_date} onChange={(e) => { updateFormField(e) }} />
+        <input type="date" id="res_date" value={formData.res_date} onChange={handleDateChange} />
 
         <label htmlFor="res_time">Choose time</label>
-        <select id="res_time" value={formData.res_time} onChange={(e) => { updateFormField(e) }}>
-          {timesList(availableTimes)}
+        <select id="res_time" value={formData.res_time} placeholder="Select a time..." onChange={(e) => { updateFormField(e) }}>
+          {<TimesList availableTimes={props.availableTimes} />}
         </select>
 
-        <label htmlFor="guests">Number of guests</label>
-        <input type="number" placeholder="1" min="1" max="10" id="guests" value={formData.res_guests} onChange={(e) => { updateFormField(e) }}></input>
+        <label htmlFor="res_guests">Number of guests</label>
+        <input type="number" placeholder="1" min="1" max="10" id="res_guests" value={formData.res_guests} onChange={(e) => { updateFormField(e) }}></input>
 
-        <label htmlFor="occasion">Occasion</label>
-        <select id="occasion" value={formData.res_occasion} onChange={(e) => { updateFormField(e) }}>
+        <label htmlFor="res_occasion">Occasion</label>
+        <select id="res_occasion" value={formData.res_occasion} onChange={(e) => { updateFormField(e) }}>
           <option>Select</option>
           <option>Birthday</option>
           <option>Engagement</option>
           <option>Anniversary</option>
         </select>
 
-        <label htmlFor="preference">Preference</label>
-        <select id="preference" value={formData.res_preference} onChange={(e) => { updateFormField(e) }}>
+        <label htmlFor="res_preference">Preference</label>
+        <select id="res_preference" value={formData.res_preference} onChange={(e) => { updateFormField(e) }}>
           <option>Select</option>
           <option>Inside</option>
           <option>Outside</option>
