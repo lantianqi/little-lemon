@@ -3,12 +3,20 @@ import Button1 from "./Button1";
 import { useState } from "react";
 
 function BookingForm() {
+  const availableTimes = [
+    "17:00",
+    "18:00",
+    "19:00",
+    "20:00",
+    "21:00",
+    "22:00"
+  ];
   const [formData, setFormData] = useState({
     res_date: "",
     res_time: "17:00",
-    guests: 1,
-    occasion: "Select",
-    preference: "Select",
+    res_guests: 1,
+    res_occasion: "Select",
+    res_preference: "Select",
     res_name: "",
     res_email: ""
   });
@@ -49,70 +57,120 @@ function BookingForm() {
     setAllConfirmed(true);
   }
 
+  function timesList(availableTimes) {
+    const timesOptionsList =
+      availableTimes.map((t) => {
+        return <option key={"time_" + t}>{t}</option>;
+      });
+    return timesOptionsList;
+  }
+
   const tableForm = (
-    <form className="booking_form">
-      <label htmlFor="res_date">Choose date</label>
-      <input type="date" id="res_date" value={formData.res_date} onChange={(e) => { updateFormField(e) }} />
+    <form className="booking_form_view" id="table_form_view">
 
-      <label htmlFor="res_time">Choose time</label>
-      <select id="res_time" value={formData.res_time} onChange={(e) => { updateFormField(e) }}>
-        <option>17:00</option>
-        <option>18:00</option>
-        <option>19:00</option>
-        <option>20:00</option>
-        <option>21:00</option>
-        <option>22:00</option>
-      </select>
+      <div className="form_fields">
+        <label htmlFor="res_date">Choose date</label>
+        <input type="date" id="res_date" value={formData.res_date} onChange={(e) => { updateFormField(e) }} />
 
-      <label htmlFor="guests">Number of guests</label>
-      <input type="number" placeholder="1" min="1" max="10" id="guests" value={formData.guests} onChange={(e) => { updateFormField(e) }}></input>
+        <label htmlFor="res_time">Choose time</label>
+        <select id="res_time" value={formData.res_time} onChange={(e) => { updateFormField(e) }}>
+          {timesList(availableTimes)}
+        </select>
 
-      <label htmlFor="occasion">Occasion</label>
-      <select id="occasion" value={formData.occasion} onChange={(e) => { updateFormField(e) }}>
-        <option>Select</option>
-        <option>Birthday</option>
-        <option>Engagement</option>
-        <option>Anniversary</option>
-      </select>
+        <label htmlFor="guests">Number of guests</label>
+        <input type="number" placeholder="1" min="1" max="10" id="guests" value={formData.res_guests} onChange={(e) => { updateFormField(e) }}></input>
 
-      <label htmlFor="preference">Preference</label>
-      <select id="preference" value={formData.preference} onChange={(e) => { updateFormField(e) }}>
-        <option>Select</option>
-        <option>Inside</option>
-        <option>Outside</option>
-      </select>
+        <label htmlFor="occasion">Occasion</label>
+        <select id="occasion" value={formData.res_occasion} onChange={(e) => { updateFormField(e) }}>
+          <option>Select</option>
+          <option>Birthday</option>
+          <option>Engagement</option>
+          <option>Anniversary</option>
+        </select>
 
-      <Button1 text="Make Your Reservation" onClick={confirmTableInfo} />
+        <label htmlFor="preference">Preference</label>
+        <select id="preference" value={formData.res_preference} onChange={(e) => { updateFormField(e) }}>
+          <option>Select</option>
+          <option>Inside</option>
+          <option>Outside</option>
+        </select>
+      </div>
 
-      <Button1 text="Log formData" onClick={logFormData} />
+      <div className="form_button_container">
+        <div className="form_button_container">
+          <Button1 className="form_button" text="Make Your Reservation" onClick={confirmTableInfo} />
+          <Button1 className="form_button" text="Log formData" onClick={logFormData} />
+        </div>
+      </div>
+
     </form>
   );
 
   const contactForm = (
-    <form className="booking_form">
-      <label htmlFor="res_name">Name</label>
-      <input type="text" id="res_name" value={formData.res_name} onChange={(e) => { updateFormField(e) }} />
+    <form className="booking_form_view" id="contact_form_view">
 
-      <label htmlFor="res_email">Email</label>
-      <input type="email" id="res_email" value={formData.res_email} onChange={(e) => { updateFormField(e) }} />
+      <div className="form_fields">
+        <label htmlFor="res_name">Name</label>
+        <input type="text" id="res_name" value={formData.res_name} onChange={(e) => { updateFormField(e) }} />
 
-      <Button1 text="Make Your Reservation" onClick={confirmContactInfo} />
+        <label htmlFor="res_email">Email</label>
+        <input type="email" id="res_email" value={formData.res_email} onChange={(e) => { updateFormField(e) }} />
+      </div>
 
-      <Button1 text="Log formData" onClick={logFormData} />
+      <div className="form_button_container">
+        <Button1 className="form_button" text="Make Your Reservation" onClick={confirmContactInfo} />
+        <Button1 className="form_button" text="Log formData" onClick={logFormData} />
+      </div>
+
     </form>
   );
 
   const overview = (
-    <div id="overview_page">
-      "Overview"
-      <Button1 text="overview" onClick={confirmOverview} />
+    <div className="booking_form_view" id="overview_view">
+
+      <div className="form_fields">
+        <fieldset>
+          <h1>Table Information</h1>
+          <h2>Date</h2>
+          <p>{formData.res_date}</p>
+          <h2>Time</h2>
+          <p>{formData.res_time}</p>
+          <h2>Number of guests</h2>
+          <p>{formData.res_guests}</p>
+          <h2>Occasion</h2>
+          <p>{formData.res_occasion}</p>
+          <h2>Preference</h2>
+          <p>{formData.res_preference}</p>
+        </fieldset>
+        <fieldset>
+          <h1>Contact Information</h1>
+          <h2>Name</h2>
+          <p>{formData.res_name}</p>
+          <h2>Email</h2>
+          <p>{formData.res_email}</p>
+        </fieldset>
+      </div>
+
+      <div className="form_button_container">
+        <Button1 className="form_button" text="confirm" onClick={confirmOverview} />
+        <Button1 className="form_button" text="Log formData" onClick={logFormData} />
+      </div>
+
     </div>
   );
 
   const confirmation = (
-    <div id="confirmation_page">
-      "Confirmation"
-      <Button1 text="confirm" onClick={confirmAll} />
+    <div className="booking_form_view" id="confirmation_view">
+
+      <div className="form_fields">
+        confirmation
+      </div>
+
+      <div className="form_button_container">
+        <Button1 className="form_button" text="confirm" onClick={confirmAll} />
+        <Button1 className="form_button" text="Log formData" onClick={logFormData} />
+      </div>
+
     </div>
   );
 
