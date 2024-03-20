@@ -5,27 +5,27 @@ import Footer from "./Footer";
 import Header from "./Header";
 import Nav from "./Nav";
 
-function BookingPage() {
+function BookingPage(availableTimes,  dispatch) {
   return (
     <>
       <Header />
-    <Nav />
-    <div id="booking_container">
+      <Nav />
+      <div id="booking_container">
 
-      <div id="before_booking_form" className="booking_sub_container">
-        Before Booking Form
+        <div id="before_booking_form" className="booking_sub_container">
+          Before Booking Form
+        </div>
+
+        <div id="booking_form_container" className="booking_sub_container">
+          <BookingForm availableTimes={availableTimes} dispatch={dispatch} />
+        </div>
+
+        <div id="after_booking_form" className="booking_sub_container">
+          After Booking Form
+        </div>
+
       </div>
-
-      <div id="booking_form_container" className="booking_sub_container">
-        <BookingForm />
-      </div>
-
-      <div id="after_booking_form" className="booking_sub_container">
-        After Booking Form
-      </div>
-
-    </div>
-    <Footer />
+      <Footer />
     </>
   );
 }
