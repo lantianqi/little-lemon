@@ -18,7 +18,6 @@ function BookingForm({
   });
 
   const [inputConfirmed, setInputConfirmed] = useState(false);
-  const [overviewConfirmed, setOverviewConfirmed] = useState(false);
 
   function logFormData() {
     console.log(formData);
@@ -39,20 +38,16 @@ function BookingForm({
     setInputConfirmed(true);
   }
 
-  function confirmOverview() {
-    setOverviewConfirmed(true);
-  }
-
   const TimesList = (props) => {
-    const timesList = props.availableTimes?.map((t, index) => {
+    const timesList = props.availableTimes?.map((t) => {
       return (
         <option
-          id={"option" + index}
-          key={"option" + index}
+          id={"option" + t}
+          key={"option" + t}
+          value={t}
           className="time_slot"
-        >
-          {t}
-        </option>
+          data-testid="booking_time_option"
+        >{t}</option>
       );
     });
     return timesList;
@@ -63,7 +58,7 @@ function BookingForm({
       ...formData,
       res_date: e.target.value
     });
-    dispatchOnDateChange(e.target.value);
+    dispatchOnDateChange({type: "UPDATE_TIMES", date: new Date(e.target.value)});
   };
 
   return (

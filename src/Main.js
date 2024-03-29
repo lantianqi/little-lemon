@@ -12,10 +12,13 @@ import { useNavigate } from "react-router-dom";
 
 import { fetchAPI, submitAPI } from "./api";
 
-// const initialAvailableTimes = ["17:00", "18:00", "19:00", "20:00", "21:00", "22:00"];
-const updateTimes = (availableTimes, date) => {
-  const response = fetchAPI(new Date(date));
-  return (response.length !== 0) ? response : availableTimes;
+const updateTimes = (state, action) => {
+  switch (action.type) {
+    case "UPDATE_TIMES":
+      return fetchAPI(action.date);
+    default:
+      return state;
+  }
 };
 
 const initializeTimes = () => {
@@ -23,12 +26,9 @@ const initializeTimes = () => {
 }
 
 function Main() {
-  const [
-    availableTimes,
-    dispatchOnDateChange
-  ] = useReducer(updateTimes, [], initializeTimes);
-
+  const [availableTimes, dispatchOnDateChange] = useReducer(updateTimes, [], initializeTimes);
   const navigate = useNavigate();
+
   const submitForm = (e, formData) => {
     e.preventDefault();
     try {
@@ -36,7 +36,9 @@ function Main() {
       if (response) {
         alert("Submitted!")
         navigate("/confirmed-booking");
-      } else throw new Error('Form could not be submitted to the server.');
+      } else {
+        throw new Error('Form could not be submitted to the server.');
+      }
     } catch(err) {
       alert(err);
     }
