@@ -12,11 +12,11 @@ import { MemoryRouter } from "react-router-dom";
 //   expect(linkElement).toBeInTheDocument();
 // });
 
-test(("test header is in the app"), () => {
+test("test header is in the app", () => {
   render(
     <MemoryRouter>
       <App />
-    </MemoryRouter>
+    </MemoryRouter>,
   );
   const header = screen.getByRole("banner");
   expect(header).toBeInTheDocument();

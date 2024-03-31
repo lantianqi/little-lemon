@@ -3,9 +3,9 @@ const seededRandom = function (seed) {
   var a = 185852;
   var s = seed % m;
   return function () {
-    return (s = s * a % m) / m;
+    return (s = (s * a) % m) / m;
   };
-}
+};
 
 export function fetchAPI(date) {
   let result = [];
@@ -13,15 +13,15 @@ export function fetchAPI(date) {
 
   for (let i = 17; i <= 23; i++) {
     if (random() < 0.5) {
-      result.push(i + ':00');
+      result.push(i + ":00");
     }
     if (random() < 0.5) {
-      result.push(i + ':30');
+      result.push(i + ":30");
     }
   }
   return result;
-};
+}
 
 export function submitAPI(formData) {
   return true;
-};
+}

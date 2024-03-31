@@ -1,43 +1,11 @@
 import "./BookingForm.css";
 import Button1 from "./Button1";
-import { useState } from "react";
+// import { useState } from "react";
 
-function BookingForm({
-  availableTimes,
-  dispatchOnDateChange,
-  submitForm
-}) {
-  const [formData, setFormData] = useState({
-    res_date: "",
-    res_time: "",
-    res_guests: 1,
-    res_occasion: "Select",
-    res_preference: "Select",
-    res_name: "",
-    res_email: ""
-  });
+import * as yup from "yup";
+import { useFormik } from "formik";
 
-  const [inputConfirmed, setInputConfirmed] = useState(false);
-
-  function logFormData() {
-    console.log(formData);
-  }
-
-  function updateFormData(k, v) {
-    setFormData({
-      ...formData,
-      [k]: v
-    })
-  }
-
-  function updateFormField(e) {
-    updateFormData(e.target.id, e.target.value);
-  }
-
-  function confirmInput() {
-    setInputConfirmed(true);
-  }
-
+function BookingForm({ availableTimes, dispatchOnDateChange, submitForm }) {
   const TimesList = (props) => {
     const timesList = props.availableTimes?.map((t) => {
       return (
@@ -47,98 +15,174 @@ function BookingForm({
           value={t}
           className="time_slot"
           data-testid="booking_time_option"
-        >{t}</option>
+        >
+          {t}
+        </option>
       );
     });
     return timesList;
   };
-
-  const handleDateChange = e => {
-    setFormData({
-      ...formData,
-      res_date: e.target.value
-    });
-    dispatchOnDateChange({type: "UPDATE_TIMES", date: new Date(e.target.value)});
-  };
-
+  const formik = useFormik({
+    initialValues: {
+      res_date: "",
+      res_time: "",
+      res_guests: 1,
+      res_occasion: "",
+      res_preference: "",
+      res_name: "",
+      res_email: "",
+    },
+    onSubmit: (values) => {
+      alert(JSON.stringify(values, null, 2));
+    },
+    validationSchema: yup.object({
+      res_date: yup
+        .date()
+        .required("Please provide a valid value for this field.")
+        .min(new Date(), "Please provide a date later than today."),
+      res_time: yup
+        .mixed()
+        .required("Please provide a valid value for this field.")
+        .oneOf(availableTimes),
+      res_guests: yup
+        .number()
+        .required("Please provide a valid value for this field.")
+        .min(1, "There must be at least 1 guest.")
+        .max(10, "We can only serve at most 10 guests."),
+      res_occasion: yup
+        .mixed()
+        .oneOf(["none", "birthday", "engagement", "anniversary"], "Please select from the options.")
+        .defined("Please select from the options."),
+      res_preference: yup
+        .mixed()
+        .oneOf(["none", "inside", "outside"], "Please select from the options.")
+        .defined("Please select from the options."),
+      res_name: yup
+        .string()
+        .required("Please provide a valid value for this field.")
+        .min(2, "Please provide a name that has at least 2 characters.")
+        .max(50, "Please provide a name that has at most 50 characters"),
+      res_email: yup
+        .string()
+        .email("Please provide a valid email address.")
+        .required("Please provide a valid value for this field."),
+    }),
+  });
   return (
-    <form id="booking_form" onSubmit={submitForm}>
-      <div className="booking_form_view" id="input_view" hidden={inputConfirmed}>
-        <h1>Book Now</h1>
-
-        <div className="form_fields">
-          <label htmlFor="res_date">Choose date</label>
-          <input type="date" id="res_date" value={formData.res_date} onChange={handleDateChange} />
-
-          <label htmlFor="res_time">Choose time</label>
-          <select id="res_time" value={formData.res_time} placeholder="Select a time..." onChange={(e) => { updateFormField(e) }}>
-            {<TimesList availableTimes={availableTimes} />}
-          </select>
-
-          <label htmlFor="res_guests">Number of guests</label>
-          <input type="number" placeholder="1" min="1" max="10" id="res_guests" value={formData.res_guests} onChange={(e) => { updateFormField(e) }}></input>
-
-          <label htmlFor="res_occasion">Occasion</label>
-          <select id="res_occasion" value={formData.res_occasion} onChange={(e) => { updateFormField(e) }}>
-            <option>Select</option>
-            <option>Birthday</option>
-            <option>Engagement</option>
-            <option>Anniversary</option>
-          </select>
-
-          <label htmlFor="res_preference">Preference</label>
-          <select id="res_preference" value={formData.res_preference} onChange={(e) => { updateFormField(e) }}>
-            <option>Select</option>
-            <option>Inside</option>
-            <option>Outside</option>
-          </select>
-        </div>
-
-        <div className="form_fields">
-          <label htmlFor="res_name">Name</label>
-          <input type="text" id="res_name" value={formData.res_name} onChange={(e) => { updateFormField(e) }} />
-
-          <label htmlFor="res_email">Email</label>
-          <input type="email" id="res_email" value={formData.res_email} onChange={(e) => { updateFormField(e) }} />
-        </div>
-
+    <form onSubmit={formik.handleSubmit}>
+      <div className="booking_form_view" id="booking_input_view">
+        <label htmlFor="res_date">Date</label>
+        <input
+          type="date"
+          id="res_date"
+          name="res_date"
+          {...formik.getFieldProps("res_date")}
+          onChange={(e) => {
+            formik.setValues({
+              ...formik.values,
+              res_date: e.target.value,
+            });
+            dispatchOnDateChange({
+              type: "UPDATE_TIMES",
+              date: new Date(e.target.value),
+            });
+          }}
+        />
+        {
+          <div className="form_error">
+            {formik.touched.res_date && formik.errors.res_date}
+          </div>
+        }
+        <label htmlFor="res_time">Time</label>
+        <select
+          id="res_time"
+          name="res_time"
+          {...formik.getFieldProps("res_time")}
+        >
+          <option value="-">--Please choose an option--</option>
+          {<TimesList availableTimes={availableTimes} />}
+        </select>
+        {
+          <div className="form_error">
+            {formik.touched.res_time && formik.errors.res_time}
+          </div>
+        }
+        <label htmlFor="res_guests">Number of guests</label>
+        <input
+          type="number"
+          id="res_guests"
+          name="res_guests"
+          {...formik.getFieldProps("res_guests")}
+        />
+        {
+          <div className="form_error">
+            {formik.touched.res_guests && formik.errors.res_guests}
+          </div>
+        }
+        <label htmlFor="res_occasion">Occasion</label>
+        <select
+          as="select"
+          id="res_occasion"
+          name="res_occasion"
+          {...formik.getFieldProps("res_occasion")}
+          onChange={(e) => {
+            formik.setFieldValue("res_occasion", e.target.value);
+          }}
+        >
+          <option value="-">--Please choose an option--</option>
+          <option value="none">None</option>
+          <option value="birthday">Birthday</option>
+          <option value="engagement">Engagement</option>
+          <option value="anniversary">Anniversary</option>
+        </select>
+        {
+          <div className="form_error">
+            {formik.touched.res_occasion && formik.errors.res_occasion}
+          </div>
+        }
+        <label htmlFor="res_preference">Preference</label>
+        <select
+          id="res_preference"
+          name="res_preference"
+          {...formik.getFieldProps("res_preference")}
+        >
+          <option value="-">--Please choose an option--</option>
+          <option value="none">None</option>
+          <option value="inside">Inside</option>
+          <option value="outside">Outside</option>
+        </select>
+        {
+          <div className="form_error">
+            {formik.touched.res_preference && formik.errors.res_preference}
+          </div>
+        }
+        <label htmlFor="res_name">Name</label>
+        <input
+          type="text"
+          id="res_name"
+          name="res_name"
+          {...formik.getFieldProps("res_name")}
+        />
+        {
+          <div className="form_error">
+            {formik.touched.res_name && formik.errors.res_name}
+          </div>
+        }
+        <label htmlFor="res_email">Email</label>
+        <input
+          type="email"
+          id="res_email"
+          name="res_email"
+          {...formik.getFieldProps("res_email")}
+        />
+        {
+          <div className="form_error">
+            {formik.touched.res_email && formik.errors.res_email}
+          </div>
+        }
         <div className="form_button_container">
-          <Button1 className="form_button" text="Make Your Reservation" onClick={confirmInput} />
-          <Button1 className="form_button" text="Log formData" onClick={logFormData} />
+          <Button1 type="submit" text="Confirm" onClick={formik.handleSubmit} disabled={!formik.isValid} />
         </div>
-
-      </div>
-
-      <div className="booking_form_view" id="overview_view" hidden={!inputConfirmed}>
-
-        <div className="form_fields">
-          <fieldset>
-            <h1>Table Information</h1>
-            <h2>Date</h2>
-            <p>{formData.res_date}</p>
-            <h2>Time</h2>
-            <p>{formData.res_time}</p>
-            <h2>Number of guests</h2>
-            <p>{formData.res_guests}</p>
-            <h2>Occasion</h2>
-            <p>{formData.res_occasion}</p>
-            <h2>Preference</h2>
-            <p>{formData.res_preference}</p>
-          </fieldset>
-          <fieldset>
-            <h1>Contact Information</h1>
-            <h2>Name</h2>
-            <p>{formData.res_name}</p>
-            <h2>Email</h2>
-            <p>{formData.res_email}</p>
-          </fieldset>
-        </div>
-
-        <div className="form_button_container">
-          <Button1 className="form_button" text="confirm" onClick={submitForm} />
-          <Button1 className="form_button" text="Log formData" onClick={logFormData} />
-        </div>
-
       </div>
     </form>
   );

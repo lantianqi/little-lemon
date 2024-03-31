@@ -1,15 +1,10 @@
 import BookingForm from "./BookingForm";
 import "./BookingPage.css";
 
-function BookingPage({
-  availableTimes,
-  dispatchOnDateChange,
-  submitForm
-}) {
+function BookingPage({ availableTimes, dispatchOnDateChange, submitForm }) {
   return (
     <>
       <div id="booking_container">
-
         <div id="before_booking_form" className="booking_sub_container">
           Before Booking Form
         </div>
@@ -18,13 +13,13 @@ function BookingPage({
           <BookingForm
             availableTimes={availableTimes}
             dispatchOnDateChange={dispatchOnDateChange}
-            submitForm={submitForm} />
+            submitForm={submitForm}
+          />
         </div>
 
         <div id="after_booking_form" className="booking_sub_container">
           After Booking Form
         </div>
-
       </div>
     </>
   );

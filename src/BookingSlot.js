@@ -1,5 +1,3 @@
-function BookingSlot() {
-
-}
+function BookingSlot() {}
 
 export default BookingSlot;

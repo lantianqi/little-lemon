@@ -23,10 +23,14 @@ const updateTimes = (state, action) => {
 
 const initializeTimes = () => {
   return fetchAPI(new Date());
-}
+};
 
 function Main() {
-  const [availableTimes, dispatchOnDateChange] = useReducer(updateTimes, [], initializeTimes);
+  const [availableTimes, dispatchOnDateChange] = useReducer(
+    updateTimes,
+    [],
+    initializeTimes,
+  );
   const navigate = useNavigate();
 
   const submitForm = (e, formData) => {
@@ -34,12 +38,12 @@ function Main() {
     try {
       const response = submitAPI(formData);
       if (response) {
-        alert("Submitted!")
+        alert("Submitted!");
         navigate("/confirmed-booking");
       } else {
-        throw new Error('Form could not be submitted to the server.');
+        throw new Error("Form could not be submitted to the server.");
       }
-    } catch(err) {
+    } catch (err) {
       alert(err);
     }
   };
@@ -50,10 +54,16 @@ function Main() {
       <Route path="/home" element={<HomePage />} />
       <Route path="/about" element={<Chicago />} />
       <Route path="/menu" element={<Menu />} />
-      <Route path="/reservations" element={<BookingPage
-        availableTimes={availableTimes}
-        dispatchOnDateChange={dispatchOnDateChange}
-        submitForm={submitForm} />} />
+      <Route
+        path="/reservations"
+        element={
+          <BookingPage
+            availableTimes={availableTimes}
+            dispatchOnDateChange={dispatchOnDateChange}
+            submitForm={submitForm}
+          />
+        }
+      />
       <Route path="/online-order" element={<OnlineOrder />} />
       <Route path="/login" element={<Login />} />
       <Route path="/confirmed-booking" element={<ConfirmedBooking />} />
