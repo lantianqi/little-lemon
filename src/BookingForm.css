@@ -11,6 +11,8 @@
   flex-direction: column;
   justify-self: center;
   align-items: center;
+  background-color: aqua;
+  margin: auto;
 }
 
 .form_error {

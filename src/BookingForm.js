@@ -1,9 +1,9 @@
 import "./BookingForm.css";
-import Button1 from "./Button1";
+import Button from "./Button";
 // import { useState } from "react";
 
 import * as yup from "yup";
-import { useFormik } from "formik";
+import { useFormik, Formik, Field, ErrorMessage } from "formik";
 
 function BookingForm({ availableTimes, dispatchOnDateChange, submitForm }) {
   const TimesList = (props) => {
@@ -33,6 +33,7 @@ function BookingForm({ availableTimes, dispatchOnDateChange, submitForm }) {
       res_email: "",
     },
     onSubmit: (values) => {
+      submitForm(values);
       alert(JSON.stringify(values, null, 2));
     },
     validationSchema: yup.object({
@@ -42,8 +43,8 @@ function BookingForm({ availableTimes, dispatchOnDateChange, submitForm }) {
         .min(new Date(), "Please provide a date later than today."),
       res_time: yup
         .mixed()
-        .required("Please provide a valid value for this field.")
-        .oneOf(availableTimes),
+        .notOneOf(["-"])
+        .required("Please provide a valid value for this field."),
       res_guests: yup
         .number()
         .required("Please provide a valid value for this field.")
@@ -51,7 +52,10 @@ function BookingForm({ availableTimes, dispatchOnDateChange, submitForm }) {
         .max(10, "We can only serve at most 10 guests."),
       res_occasion: yup
         .mixed()
-        .oneOf(["none", "birthday", "engagement", "anniversary"], "Please select from the options.")
+        .oneOf(
+          ["none", "birthday", "engagement", "anniversary"],
+          "Please select from the options.",
+        )
         .defined("Please select from the options."),
       res_preference: yup
         .mixed()
@@ -61,7 +65,7 @@ function BookingForm({ availableTimes, dispatchOnDateChange, submitForm }) {
         .string()
         .required("Please provide a valid value for this field.")
         .min(2, "Please provide a name that has at least 2 characters.")
-        .max(50, "Please provide a name that has at most 50 characters"),
+        .max(50, "Please provide a name that has at most 50 characters."),
       res_email: yup
         .string()
         .email("Please provide a valid email address.")
@@ -70,6 +74,9 @@ function BookingForm({ availableTimes, dispatchOnDateChange, submitForm }) {
   });
   return (
     <form onSubmit={formik.handleSubmit}>
+      <div className="form_heading">
+        {formik.dirty && formik.isValid ? <p>All good</p> : <p>Hold on</p>}
+      </div>
       <div className="booking_form_view" id="booking_input_view">
         <label htmlFor="res_date">Date</label>
         <input
@@ -77,19 +84,19 @@ function BookingForm({ availableTimes, dispatchOnDateChange, submitForm }) {
           id="res_date"
           name="res_date"
           {...formik.getFieldProps("res_date")}
-          onChange={(e) => {
+          onChange={async (e) => {
             formik.setValues({
               ...formik.values,
               res_date: e.target.value,
             });
-            dispatchOnDateChange({
+            await dispatchOnDateChange({
               type: "UPDATE_TIMES",
               date: new Date(e.target.value),
             });
           }}
         />
         {
-          <div className="form_error">
+          <div className="form_error" data-testid="res_date_error">
             {formik.touched.res_date && formik.errors.res_date}
           </div>
         }
@@ -103,7 +110,7 @@ function BookingForm({ availableTimes, dispatchOnDateChange, submitForm }) {
           {<TimesList availableTimes={availableTimes} />}
         </select>
         {
-          <div className="form_error">
+          <div className="form_error" data-testid="res_time_error">
             {formik.touched.res_time && formik.errors.res_time}
           </div>
         }
@@ -112,16 +119,16 @@ function BookingForm({ availableTimes, dispatchOnDateChange, submitForm }) {
           type="number"
           id="res_guests"
           name="res_guests"
+          placeholder="1~10 guests"
           {...formik.getFieldProps("res_guests")}
         />
         {
-          <div className="form_error">
+          <div className="form_error" data-testid="res_guests_error">
             {formik.touched.res_guests && formik.errors.res_guests}
           </div>
         }
         <label htmlFor="res_occasion">Occasion</label>
         <select
-          as="select"
           id="res_occasion"
           name="res_occasion"
           {...formik.getFieldProps("res_occasion")}
@@ -136,7 +143,7 @@ function BookingForm({ availableTimes, dispatchOnDateChange, submitForm }) {
           <option value="anniversary">Anniversary</option>
         </select>
         {
-          <div className="form_error">
+          <div className="form_error" data-testid="res_occasion_error">
             {formik.touched.res_occasion && formik.errors.res_occasion}
           </div>
         }
@@ -152,7 +159,7 @@ function BookingForm({ availableTimes, dispatchOnDateChange, submitForm }) {
           <option value="outside">Outside</option>
         </select>
         {
-          <div className="form_error">
+          <div className="form_error" data-testid="res_preference_error">
             {formik.touched.res_preference && formik.errors.res_preference}
           </div>
         }
@@ -164,7 +171,7 @@ function BookingForm({ availableTimes, dispatchOnDateChange, submitForm }) {
           {...formik.getFieldProps("res_name")}
         />
         {
-          <div className="form_error">
+          <div className="form_error" data-testid="res_name_error">
             {formik.touched.res_name && formik.errors.res_name}
           </div>
         }
@@ -176,12 +183,33 @@ function BookingForm({ availableTimes, dispatchOnDateChange, submitForm }) {
           {...formik.getFieldProps("res_email")}
         />
         {
-          <div className="form_error">
+          <div className="form_error" data-testid="res_email_error">
             {formik.touched.res_email && formik.errors.res_email}
           </div>
         }
         <div className="form_button_container">
-          <Button1 type="submit" text="Confirm" onClick={formik.handleSubmit} disabled={!formik.isValid} />
+          <Button
+            id="submit"
+            data-testid="submit"
+            text="Confirm"
+            disabled={!(formik.dirty && formik.isValid)}
+            onClick={(e) => {
+              submitForm(e, formik.values);
+              formik.handleSubmit();
+            }}
+            type="submit"
+          />
+          <Button
+            text="log"
+            onClick={(e) => {
+              e.preventDefault();
+              console.log(formik.values);
+              console.log(document.getElementById("submit"));
+              console.log(
+                document.getElementById("submit").getAttribute("disabled"),
+              );
+            }}
+          />
         </div>
       </div>
     </form>

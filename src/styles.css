@@ -167,9 +167,11 @@ nav>#nav-links {
 Button1 CSS
 */
 .button1-container {
+  display: inline-block;
   background-color: #F4CE14;
-  width: 180px;
+  width: 120px;
   height: 30px;
+  border: none;
   border-radius: 8px;
   display: flex;
   justify-content: center;

@@ -1,4 +1,4 @@
-import Button1 from "./Button1";
+import Button from "./Button";
 import Card from "./Card";
 import greek_salad from "./assets/greek_salad.jpg";
 import bruchetta from "./assets/bruchetta.jpg";
@@ -55,7 +55,7 @@ function Specials() {
         <h1>This week's specials!</h1>
         <div id="specials-top-button">
           <Link to="/menu" className="button-link">
-            <Button1 text="Online Menu" />
+            <Button text="Online Menu" />
           </Link>
         </div>
       </div>

@@ -1,5 +1,5 @@
 import cta_image from "./assets/restauranfood.jpg";
-import Button1 from "./Button1";
+import Button from "./Button";
 import { Link } from "react-router-dom";
 
 function Hero() {
@@ -13,7 +13,7 @@ function Hero() {
           recipes served with a modern twist.
         </p>
         <Link to={"/reservations"} className="button-link">
-          <Button1 text="Reserve a Table" />
+          <Button text="Reserve a Table" />
         </Link>
       </div>
 

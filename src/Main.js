@@ -12,16 +12,16 @@ import { useNavigate } from "react-router-dom";
 
 import { fetchAPI, submitAPI } from "./api";
 
-const updateTimes = (state, action) => {
+export const updateTimes = (state, action) => {
   switch (action.type) {
     case "UPDATE_TIMES":
-      return fetchAPI(action.date);
+      return fetchAPI(new Date(action.date));
     default:
       return state;
   }
 };
 
-const initializeTimes = () => {
+export const initializeTimes = () => {
   return fetchAPI(new Date());
 };
 
