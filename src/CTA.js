@@ -1,6 +1,7 @@
 import cta_image from "./assets/restauranfood.jpg";
 import Button from "./Button";
 import { Link } from "react-router-dom";
+import "./CSS/CTA.css";
 
 function Hero() {
   return (

@@ -6,6 +6,7 @@
     display: grid;
     height: 150px;
     grid-template-columns: repeat(12, [col-start] 1fr);
+    gap: 10px;
     margin: 0 auto;
   }
 
@@ -53,6 +54,7 @@
     display: grid;
     height: 150px;
     grid-template-columns: repeat(4, [col-start] 1fr);
+    gap: 10px;
     margin: 0 auto;
   }
 
