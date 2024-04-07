@@ -12,7 +12,6 @@ import "./CSS/Header.css";
 import Nav from "./Nav";
 
 function Header() {
-  const [bigWindow, setBigWindow] = useState(false);
   const [showMenu, setShowMenu] = useState(false);
   const { windowWidth } = useWindowResize();
   const navRef = useRef(null);
@@ -22,10 +21,8 @@ function Header() {
   useEffect(() => {
     if (windowWidth > 768) {
       setShowMenu(true);
-      setBigWindow(true);
     } else {
       setShowMenu(false);
-      setBigWindow(false);
     }
   }, [windowWidth]);
 

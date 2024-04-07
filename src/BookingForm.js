@@ -3,7 +3,7 @@ import Button from "./Button";
 // import { useState } from "react";
 
 import * as yup from "yup";
-import { useFormik, Formik, Field, ErrorMessage } from "formik";
+import { useFormik } from "formik";
 
 function BookingForm({ availableTimes, dispatchOnDateChange, submitForm }) {
   const TimesList = (props) => {
@@ -73,7 +73,7 @@ function BookingForm({ availableTimes, dispatchOnDateChange, submitForm }) {
     }),
   });
   return (
-    <form onSubmit={formik.handleSubmit}>
+    <form onSubmit={formik.handleSubmit} className="booking_form">
       <div className="form_heading">
         {formik.dirty && formik.isValid ? <p>All good</p> : <p>Hold on</p>}
       </div>

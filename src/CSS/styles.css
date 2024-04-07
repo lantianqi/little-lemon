@@ -172,3 +172,20 @@ Login CSS
   margin-top: 0;
   margin-bottom: 0;
 }
+
+/*
+ConfirmedBooking CSS
+*/
+.confirmed-booking {
+  height: 400px;
+  background-color: #FBDABB;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.confirmed-booking h1 {
+  font-size: 40px;
+  margin-top: 0;
+  margin-bottom: 0;
+}

@@ -34,16 +34,18 @@ const cards = [
 
 const CardsList = (props) => {
   const cardsList = props.data.map((card, index) => {
-    return (<li>
-      <Card
-        id={"card" + index}
-        key={"card" + index}
-        food_name={card.food_name}
-        food_price={card.food_price}
-        food_description={card.food_description}
-        img_src={card.img_src}
-      />
-    </li>);
+    return (
+      <li>
+        <Card
+          id={"card" + index}
+          key={"card" + index}
+          food_name={card.food_name}
+          food_price={card.food_price}
+          food_description={card.food_description}
+          img_src={card.img_src}
+        />
+      </li>
+    );
   });
   return <ul>{cardsList}</ul>;
 };

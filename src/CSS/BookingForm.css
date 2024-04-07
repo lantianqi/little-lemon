@@ -1,4 +1,21 @@
+.booking_form {
+  width: 50%;
+  max-width: 260px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+.booking_form input,.booking_form select {
+  box-sizing: border-box;
+  height: 1.5rem;
+  min-width: 190px;
+  padding: 1px;
+}
+
 .booking_form_view {
+  min-width: 190px;
   display: flex;
   flex-direction: column;
   justify-content: center;
@@ -11,11 +28,12 @@
   flex-direction: column;
   justify-self: center;
   align-items: center;
-  background-color: aqua;
   margin: auto;
 }
 
 .form_error {
   color: red;
   font-size: small;
+  max-width: 25ch;
+
 }
