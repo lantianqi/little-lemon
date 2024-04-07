@@ -189,3 +189,7 @@ ConfirmedBooking CSS
   margin-top: 0;
   margin-bottom: 0;
 }
+
+a:hover {
+  background-color: #FBDABB;
+}

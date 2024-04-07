@@ -49,7 +49,6 @@
 
 .card-food-description {
   grid-area: card-food-description;
-  background-color: aliceblue;
 }
 
 .card-food-description p {

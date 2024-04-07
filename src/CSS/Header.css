@@ -24,7 +24,6 @@
     grid-template-columns: repeat(12, [col-start] 1fr);
     gap: 10px;
     height: 60px;
-    background-color: yellow;
   }
 
   #headerLogo {
@@ -40,7 +39,6 @@
     display: flex;
     justify-content: center;
     align-items: center;
-    background-color: lemonchiffon;
     height: 60px;
   }
 
@@ -55,7 +53,6 @@
 
 @media only screen and (max-width:768px) {
   .headerContainer {
-    background-color: yellowgreen;
     display: grid;
     grid-template-columns: repeat(4, [col-start] 1fr);
     gap: 10px;
@@ -95,7 +92,6 @@
     min-width: 200px;
     min-height: 60vh;
     max-height: 100vh;
-    background-color: lemonchiffon;
     display: flex;
     flex-direction: column;
     justify-content: flex-start;
