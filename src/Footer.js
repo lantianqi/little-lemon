@@ -1,3 +1,4 @@
+import { Link } from "react-router-dom";
 import logo from "./assets/vertical-logo.png";
 import "./CSS/Footer.css";
 
@@ -10,12 +11,12 @@ function Footer() {
       <div id="footerDoormatNav" className="footerColumn">
         <div className="footerColumnTitle">Doormat Navigation</div>
         <ul>
-          <li>Home</li>
-          <li>About</li>
-          <li>Menu</li>
-          <li>Reservations</li>
-          <li>Order Online</li>
-          <li>Login</li>
+          <li><Link to="/" className="nav-item">Home</Link></li>
+          <li><Link to="/about" className="nav-item">About</Link></li>
+          <li><Link to="/menu" className="nav-item">Menu</Link></li>
+          <li><Link to="/reservations" className="nav-item">Reservations</Link></li>
+          <li><Link to="/online-order" className="nav-item">Order Online</Link></li>
+          <li><Link to="/login" className="nav-item">Login</Link></li>
         </ul>
       </div>
       <div id="footerContact" className="footerColumn">
