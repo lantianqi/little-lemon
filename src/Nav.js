@@ -1,34 +1,41 @@
 import { Link } from "react-router-dom";
+import "./CSS/Nav.css";
 
-import logo from "./assets/logo.jpg";
-
-function Nav() {
+function Nav({ bigWindow }) {
   return (
     <nav>
-      <div id="nav-logo">
-        <img src={logo} height={40} alt="logo" />
-      </div>
-
-      <div id="nav-links">
-        <Link to="/" className="nav-item">
-          Home
-        </Link>
-        <Link to="/about" className="nav-item">
-          About
-        </Link>
-        <Link to="/menu" className="nav-item">
-          Menu
-        </Link>
-        <Link to="/reservations" className="nav-item">
-          Reservations
-        </Link>
-        <Link to="/online-order" className="nav-item">
-          Online Order
-        </Link>
-        <Link to="/login" className="nav-item">
-          Login
-        </Link>
-      </div>
+      <ul>
+        <li>
+          <Link to="/" className="nav-item">
+            Home
+          </Link>
+        </li>
+        <li>
+          <Link to="/about" className="nav-item">
+            About
+          </Link>
+        </li>
+        <li>
+          <Link to="/menu" className="nav-item">
+            Menu
+          </Link>
+        </li>
+        <li>
+          <Link to="/reservations" className="nav-item">
+            Reservations
+          </Link>
+        </li>
+        <li>
+          <Link to="/online-order" className="nav-item">
+            Online Order
+          </Link>
+        </li>
+        <li>
+          <Link to="/login" className="nav-item">
+            Login
+          </Link>
+        </li>
+      </ul>
     </nav>
   );
 }

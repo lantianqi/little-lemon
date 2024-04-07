@@ -1,18 +1,90 @@
-import menu from "./assets/menu.svg";
-import basket from "./assets/basket.svg";
 import logo from "./assets/logo.jpg";
+import { useEffect, useRef, useState } from "react";
+import { useWindowResize } from "./hooks";
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import { faBars, faClose, faCartShopping } from '@fortawesome/free-solid-svg-icons';
+
+import "./CSS/Header.css";
+import Nav from "./Nav";
 
 function Header() {
+  const [bigWindow, setBigWindow] = useState(false);
+  const [showMenu, setShowMenu] = useState(false);
+  const { windowWidth } = useWindowResize();
+  const navRef = useRef(null);
+  const menuIconRef = useRef(null);
+
+  /** Watch and update if currently the web app is opened in a big window */
+  useEffect(() => {
+    if (windowWidth > 768) {
+      setShowMenu(true);
+      setBigWindow(true);
+    } else {
+      setShowMenu(false);
+      setBigWindow(false);
+    }
+  }, [windowWidth]);
+
+  /** Add classes based on Burger Menu open/close state */
+  useEffect(() => {
+    if (showMenu) {
+      navRef.current?.classList.add('open');
+      navRef.current?.classList.remove('close');
+    } else {
+      navRef.current?.classList.add('close');
+      navRef.current?.classList.remove('open');
+    }
+  }, [showMenu]);
+
+  /** Enable feature: Click outside or on the link to close the nav */
+  useEffect(() => {
+    const handler = ({ target }) => {
+      console.log(target);
+      console.log(navRef.current);
+      console.log(menuIconRef);
+      console.log(
+        (
+          (target.closest('#headerNav') === navRef.current &&
+            target.tagName !== 'A')
+          ||
+          target.closest('#headerMenuIcon') === menuIconRef.current
+        )
+      );
+      if (
+        (target.closest('#headerNav') === navRef.current &&
+          target.tagName !== 'A')
+        ||
+        target.closest('#headerMenuIcon') === menuIconRef.current
+      )
+        return;
+      else setShowMenu(false);
+    };
+
+    window.addEventListener('click', handler);
+    return () => window.removeEventListener('click', handler);
+  }, []);
+
   return (
-    <header className="headerContainer">
-      <div id="headerMenuIcon" className="headerColumn">
-        <img src={menu} height={15} alt="menu icon" />
+    <header role="region" aria-label="Header Region" className="headerContainer">
+      {
+        windowWidth < 768 && (
+          <div id="headerMenuIcon" className="headerMenuIcon" ref={menuIconRef} >
+            <FontAwesomeIcon icon={!showMenu ? faBars : faClose} size="2x" onClick={() => { setShowMenu(prev => !prev) }} />
+          </div>
+        )
+      }
+      <div id="headerLogo" className="headerLogo">
+        <img src={logo} height={"50px"} alt="logo" />
       </div>
-      <div id="headerLogo" className="headerColumn">
-        <img src={logo} height={30} alt="logo" />
-      </div>
-      <div id="headerBasketIcon" className="headerColumn">
-        <img src={basket} height={20} alt="basket icon" />
+      {
+        showMenu && (
+          <div id="headerNav" className="headerNav" ref={navRef}>
+            <Nav />
+          </div>
+        )
+      }
+      <div id="headerCartIcon" className="headerCartIcon">
+        <FontAwesomeIcon icon={faCartShopping} size="2x" />
       </div>
     </header>
   );

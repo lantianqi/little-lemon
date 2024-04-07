@@ -6,7 +6,7 @@ import lemon_dessert from "./assets/lemon_dessert.jpg";
 
 import { Link } from "react-router-dom";
 
-import "./Specials.css";
+import "./CSS/Specials.css";
 
 const cards = [
   {

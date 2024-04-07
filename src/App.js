@@ -3,16 +3,15 @@ import Nav from "./Nav";
 import Main from "./Main";
 import Footer from "./Footer";
 
-import "./App.css";
-import "./styles.css";
+import "./CSS/App.css";
+import "./CSS/styles.css";
 
 function App() {
   return (
     <>
       <Header />
-      <Nav />
-      <Main />
-      <Footer />
+      {/* <Main /> */}
+      {/* <Footer /> */}
     </>
     // <div className="App">
     // </div>

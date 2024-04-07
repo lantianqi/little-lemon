@@ -1,5 +1,5 @@
 import BookingForm from "./BookingForm";
-import "./BookingPage.css";
+import "./CSS/BookingPage.css";
 
 function BookingPage({ availableTimes, dispatchOnDateChange, submitForm }) {
   return (

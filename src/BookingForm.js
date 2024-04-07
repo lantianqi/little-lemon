@@ -1,4 +1,4 @@
-import "./BookingForm.css";
+import "./CSS/BookingForm.css";
 import Button from "./Button";
 // import { useState } from "react";
 
@@ -198,6 +198,7 @@ function BookingForm({ availableTimes, dispatchOnDateChange, submitForm }) {
               formik.handleSubmit();
             }}
             type="submit"
+            aria-label="On Click"
           />
           <Button
             text="log"
