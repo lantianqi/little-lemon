@@ -28,7 +28,7 @@
   }
 
   #headerLogo {
-    grid-column: col-start 2 / span 3;
+    grid-column: col-start 2 / span 2;
     height: 60px;
     display: flex;
     justify-content: center;
@@ -36,15 +36,16 @@
   }
 
   #headerNav {
-    grid-column: col-start 5 / span 7;
+    grid-column: col-start 4 / span 7;
     display: flex;
     justify-content: center;
     align-items: center;
     background-color: lemonchiffon;
+    height: 60px;
   }
 
   #headerCartIcon {
-    grid-column: col-start 12 / span 1;
+    grid-column: col-start 11 / span 1;
     height: 60px;
     display: flex;
     justify-content: center;
@@ -92,7 +93,7 @@
     top: 60px;
     width: 30vw;
     min-width: 200px;
-    min-height: 50vh;
+    min-height: 60vh;
     max-height: 100vh;
     background-color: lemonchiffon;
     display: flex;

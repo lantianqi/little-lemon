@@ -1,47 +1,96 @@
 @import url('https://fonts.googleapis.com/css?family=Karla');
 @import url('https://fonts.googleapis.com/css?family=Markazi Text');
 
-footer {
+@media only screen and (min-width: 768px) {
+  footer {
     display: grid;
     height: 150px;
     grid-template-columns: repeat(12, [col-start] 1fr);
     margin: 0 auto;
-}
+  }
 
-.footerColumn {
+  .footerColumn {
     display: flex;
     flex-direction: column;
     justify-content: flex-start;
     font: 1rem Karla;
-}
+  }
 
-#footerLogo {
+  #footerLogo {
     height: 100%;
-    grid-column: col-start 3 / span 2;
+    grid-column: col-start 2 / span 2;
     display: flex;
     justify-content: center;
     align-items: center;
-}
+  }
 
-#footerDoormatNav {
-    grid-column: col-start 5/ span 2;
-}
+  #footerDoormatNav {
+    grid-column: col-start 4/ span 2;
+  }
 
-#footerContact {
+  #footerContact {
     grid-column: col-start 7 / span 2;
-}
+  }
 
-#footerSocialMedia {
-    grid-column: col-start 9 /span 2;
-}
+  #footerSocialMedia {
+    grid-column: col-start 10 /span 2;
+  }
 
-.footerColumnTitle {
+  .footerColumnTitle {
     margin-bottom: 0;
     font-weight: 700;
-}
+  }
 
-.footerColumn ul {
+  .footerColumn ul {
     list-style-type: none;
     padding-left: 0;
     margin-top: 0;
+  }
+}
+
+@media only screen and (max-width: 768px) {
+  footer {
+    display: grid;
+    height: 150px;
+    grid-template-columns: repeat(4, [col-start] 1fr);
+    margin: 0 auto;
+  }
+
+  .footerColumn {
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    font: 1rem Karla;
+  }
+
+  #footerLogo {
+    height: 100%;
+    grid-column: col-start 1 / span 1;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+
+  #footerDoormatNav {
+    grid-column: col-start 2/ span 1;
+  }
+
+  #footerContact {
+    grid-column: col-start 3 / span 1;
+  }
+
+  #footerSocialMedia {
+    grid-column: col-start 4 /span 1;
+  }
+
+  .footerColumnTitle {
+    margin-bottom: 0;
+    font-weight: 700;
+  }
+
+  .footerColumn ul {
+    list-style-type: none;
+    padding-left: 0;
+    margin-top: 0;
+  }
 }

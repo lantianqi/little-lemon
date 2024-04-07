@@ -1,5 +1,4 @@
 import Header from "./Header";
-import Nav from "./Nav";
 import Main from "./Main";
 import Footer from "./Footer";
 
@@ -11,7 +10,7 @@ function App() {
     <>
       <Header />
       {/* <Main /> */}
-      {/* <Footer /> */}
+      <Footer />
     </>
     // <div className="App">
     // </div>

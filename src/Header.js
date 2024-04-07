@@ -1,8 +1,12 @@
 import logo from "./assets/logo.jpg";
 import { useEffect, useRef, useState } from "react";
 import { useWindowResize } from "./hooks";
-import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import { faBars, faClose, faCartShopping } from '@fortawesome/free-solid-svg-icons';
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import {
+  faBars,
+  faClose,
+  faCartShopping,
+} from "@fortawesome/free-solid-svg-icons";
 
 import "./CSS/Header.css";
 import Nav from "./Nav";
@@ -28,11 +32,11 @@ function Header() {
   /** Add classes based on Burger Menu open/close state */
   useEffect(() => {
     if (showMenu) {
-      navRef.current?.classList.add('open');
-      navRef.current?.classList.remove('close');
+      navRef.current?.classList.add("open");
+      navRef.current?.classList.remove("close");
     } else {
-      navRef.current?.classList.add('close');
-      navRef.current?.classList.remove('open');
+      navRef.current?.classList.add("close");
+      navRef.current?.classList.remove("open");
     }
   }, [showMenu]);
 
@@ -43,46 +47,48 @@ function Header() {
       console.log(navRef.current);
       console.log(menuIconRef);
       console.log(
-        (
-          (target.closest('#headerNav') === navRef.current &&
-            target.tagName !== 'A')
-          ||
-          target.closest('#headerMenuIcon') === menuIconRef.current
-        )
+        (target.closest("#headerNav") === navRef.current &&
+          target.tagName !== "A") ||
+          target.closest("#headerMenuIcon") === menuIconRef.current,
       );
       if (
-        (target.closest('#headerNav') === navRef.current &&
-          target.tagName !== 'A')
-        ||
-        target.closest('#headerMenuIcon') === menuIconRef.current
+        (target.closest("#headerNav") === navRef.current &&
+          target.tagName !== "A") ||
+        target.closest("#headerMenuIcon") === menuIconRef.current
       )
         return;
       else setShowMenu(false);
     };
 
-    window.addEventListener('click', handler);
-    return () => window.removeEventListener('click', handler);
+    window.addEventListener("click", handler);
+    return () => window.removeEventListener("click", handler);
   }, []);
 
   return (
-    <header role="region" aria-label="Header Region" className="headerContainer">
-      {
-        windowWidth < 768 && (
-          <div id="headerMenuIcon" className="headerMenuIcon" ref={menuIconRef} >
-            <FontAwesomeIcon icon={!showMenu ? faBars : faClose} size="2x" onClick={() => { setShowMenu(prev => !prev) }} />
-          </div>
-        )
-      }
+    <header
+      role="region"
+      aria-label="Header Region"
+      className="headerContainer"
+    >
+      {windowWidth < 768 && (
+        <div id="headerMenuIcon" className="headerMenuIcon" ref={menuIconRef}>
+          <FontAwesomeIcon
+            icon={!showMenu ? faBars : faClose}
+            size="2x"
+            onClick={() => {
+              setShowMenu((prev) => !prev);
+            }}
+          />
+        </div>
+      )}
       <div id="headerLogo" className="headerLogo">
-        <img src={logo} height={"50px"} alt="logo" />
+        <img src={logo} height={"40px"} alt="logo" />
       </div>
-      {
-        showMenu && (
-          <div id="headerNav" className="headerNav" ref={navRef}>
-            <Nav />
-          </div>
-        )
-      }
+      {showMenu && (
+        <div id="headerNav" className="headerNav" ref={navRef}>
+          <Nav />
+        </div>
+      )}
       <div id="headerCartIcon" className="headerCartIcon">
         <FontAwesomeIcon icon={faCartShopping} size="2x" />
       </div>
