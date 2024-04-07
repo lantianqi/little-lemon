@@ -5,7 +5,7 @@ function HomePage() {
   return (
     <>
       <CTA />
-      {/* <Specials /> */}
+      <Specials />
     </>
   );
 }

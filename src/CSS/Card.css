@@ -3,8 +3,8 @@
   grid-template-rows: 4fr 5fr;
   grid-template-columns: 100%;
   grid-template-areas: "card-image" "card-main";
-  width: 300px;
-  height: 500px;
+  width: 250px;
+  height: 450px;
   background-color: #EDEFEE;
   border-radius: 16px 16px 0 0;
 }
@@ -28,9 +28,9 @@
   grid-template-rows: 1fr 3fr 1fr;
   grid-template-columns: 5fr 1fr;
   grid-template-areas:
-  "card-food-name card-food-price"
-  "card-food-description card-food-description"
-  "card-order-delivery card-order-delivery";
+    "card-food-name card-food-price"
+    "card-food-description card-food-description"
+    "card-order-delivery card-order-delivery";
 
   padding: 3px 10px;
 }
@@ -52,7 +52,7 @@
   background-color: aliceblue;
 }
 
-.card-food-description p{
+.card-food-description p {
   text-overflow: ellipsis;
 }
 

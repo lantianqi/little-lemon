@@ -34,7 +34,7 @@ const cards = [
 
 const CardsList = (props) => {
   const cardsList = props.data.map((card, index) => {
-    return (
+    return (<li>
       <Card
         id={"card" + index}
         key={"card" + index}
@@ -43,7 +43,7 @@ const CardsList = (props) => {
         food_description={card.food_description}
         img_src={card.img_src}
       />
-    );
+    </li>);
   });
   return <ul>{cardsList}</ul>;
 };
