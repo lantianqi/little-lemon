@@ -7,7 +7,8 @@
   align-items: center;
 }
 
-.booking_form input,.booking_form select {
+.booking_form input,
+.booking_form select {
   box-sizing: border-box;
   height: 1.5rem;
   min-width: 190px;
@@ -28,12 +29,11 @@
   flex-direction: column;
   justify-self: center;
   align-items: center;
-  margin: auto;
+  margin: 20px auto;
 }
 
 .form_error {
   color: red;
   font-size: small;
   max-width: 25ch;
-
 }

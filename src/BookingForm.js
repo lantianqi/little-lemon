@@ -193,14 +193,21 @@ function BookingForm({ availableTimes, dispatchOnDateChange, submitForm }) {
             data-testid="submit"
             text="Confirm"
             disabled={!(formik.dirty && formik.isValid)}
+            tabIndex={0}
             onClick={(e) => {
               submitForm(e, formik.values);
               formik.handleSubmit();
             }}
+            onKeyDown={(e) => {
+              if (e.key == "Enter" || e.key == " ") {
+                submitForm(e, formik.values);
+                formik.handleSubmit();
+              }
+            }}
             type="submit"
             aria-label="On Click"
           />
-          <Button
+          {/* <Button
             text="log"
             onClick={(e) => {
               e.preventDefault();
@@ -210,7 +217,7 @@ function BookingForm({ availableTimes, dispatchOnDateChange, submitForm }) {
                 document.getElementById("submit").getAttribute("disabled"),
               );
             }}
-          />
+          /> */}
         </div>
       </div>
     </form>

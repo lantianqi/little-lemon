@@ -10,7 +10,7 @@
 .booking_sub_container {
   display: flex;
   justify-content: center;
-  align-items: center
+  align-items: center;
 }
 
 #before_booking_form {

@@ -75,6 +75,12 @@ function Header() {
             onClick={() => {
               setShowMenu((prev) => !prev);
             }}
+            onKeyDown={(e) => {
+              if (e.key == "Enter" || e.key == " ") {
+                setShowMenu((prev) => !prev);
+              }
+            }}
+            tabIndex={0}
           />
         </div>
       )}

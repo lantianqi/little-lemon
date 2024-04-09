@@ -1,5 +1,5 @@
-@import url('https://fonts.googleapis.com/css?family=Karla');
-@import url('https://fonts.googleapis.com/css?family=Markazi Text');
+@import url("https://fonts.googleapis.com/css?family=Karla");
+@import url("https://fonts.googleapis.com/css?family=Markazi Text");
 
 @media only screen and (min-width: 768px) {
   footer {
@@ -26,7 +26,7 @@
   }
 
   #footerDoormatNav {
-    grid-column: col-start 4/ span 2;
+    grid-column: col-start 4 / span 2;
   }
 
   #footerContact {
@@ -34,7 +34,7 @@
   }
 
   #footerSocialMedia {
-    grid-column: col-start 10 /span 2;
+    grid-column: col-start 10 / span 2;
   }
 
   .footerColumnTitle {
@@ -74,7 +74,7 @@
   }
 
   #footerDoormatNav {
-    grid-column: col-start 2/ span 1;
+    grid-column: col-start 2 / span 1;
   }
 
   #footerContact {
@@ -82,7 +82,7 @@
   }
 
   #footerSocialMedia {
-    grid-column: col-start 4 /span 1;
+    grid-column: col-start 4 / span 1;
   }
 
   .footerColumnTitle {

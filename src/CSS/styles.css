@@ -1,5 +1,5 @@
-@import url('https://fonts.googleapis.com/css?family=Karla');
-@import url('https://fonts.googleapis.com/css?family=Markazi Text');
+@import url("https://fonts.googleapis.com/css?family=Karla");
+@import url("https://fonts.googleapis.com/css?family=Markazi Text");
 
 /* Fonts CSS */
 
@@ -25,7 +25,20 @@
 }
 /* Markazi Text */
 .display_title {
-  font-family: 'Markazi Text', 'Georgia', system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+  font-family:
+    "Markazi Text",
+    "Georgia",
+    system-ui,
+    -apple-system,
+    BlinkMacSystemFont,
+    "Segoe UI",
+    Roboto,
+    Oxygen,
+    Ubuntu,
+    Cantarell,
+    "Open Sans",
+    "Helvetica Neue",
+    sans-serif;
   font-size: 64px;
   font-weight: var(--font-medium);
   margin-top: 15px;
@@ -33,7 +46,20 @@
 }
 
 .subtitle {
-  font-family: 'Markazi Text', 'Georgia', system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+  font-family:
+    "Markazi Text",
+    "Georgia",
+    system-ui,
+    -apple-system,
+    BlinkMacSystemFont,
+    "Segoe UI",
+    Roboto,
+    Oxygen,
+    Ubuntu,
+    Cantarell,
+    "Open Sans",
+    "Helvetica Neue",
+    sans-serif;
   font-size: 40px;
   font-weight: var(--font-regular);
   margin-top: 0;
@@ -42,7 +68,20 @@
 
 /* Karla */
 .lead_text {
-  font-family: 'Karla', 'Georgia', system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+  font-family:
+    "Karla",
+    "Georgia",
+    system-ui,
+    -apple-system,
+    BlinkMacSystemFont,
+    "Segoe UI",
+    Roboto,
+    Oxygen,
+    Ubuntu,
+    Cantarell,
+    "Open Sans",
+    "Helvetica Neue",
+    sans-serif;
   font-size: 18px;
   font-weight: var(--font-medium);
   margin-top: 5px;
@@ -50,26 +89,78 @@
 }
 
 .section_title {
-  font-family: 'Karla', 'Georgia', system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+  font-family:
+    "Karla",
+    "Georgia",
+    system-ui,
+    -apple-system,
+    BlinkMacSystemFont,
+    "Segoe UI",
+    Roboto,
+    Oxygen,
+    Ubuntu,
+    Cantarell,
+    "Open Sans",
+    "Helvetica Neue",
+    sans-serif;
   font-size: 20px;
   font-weight: var(--font-extra-bold);
   text-transform: uppercase;
 }
 
 .section_categories {
-  font-family: 'Karla', 'Georgia', system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+  font-family:
+    "Karla",
+    "Georgia",
+    system-ui,
+    -apple-system,
+    BlinkMacSystemFont,
+    "Segoe UI",
+    Roboto,
+    Oxygen,
+    Ubuntu,
+    Cantarell,
+    "Open Sans",
+    "Helvetica Neue",
+    sans-serif;
   font-size: 16px;
   font-weight: var(--font-extra-bold);
 }
 
 .card_title {
-  font-family: 'Karla', 'Georgia', system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+  font-family:
+    "Karla",
+    "Georgia",
+    system-ui,
+    -apple-system,
+    BlinkMacSystemFont,
+    "Segoe UI",
+    Roboto,
+    Oxygen,
+    Ubuntu,
+    Cantarell,
+    "Open Sans",
+    "Helvetica Neue",
+    sans-serif;
   font-size: 18px;
   font-weight: var(--font-bold);
 }
 
 .paragraph_text {
-  font-family: 'Karla', 'Georgia', system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+  font-family:
+    "Karla",
+    "Georgia",
+    system-ui,
+    -apple-system,
+    BlinkMacSystemFont,
+    "Segoe UI",
+    Roboto,
+    Oxygen,
+    Ubuntu,
+    Cantarell,
+    "Open Sans",
+    "Helvetica Neue",
+    sans-serif;
   font-size: 16px;
   font-weight: var(--font-regular);
   /* height: 1.5lh; */
@@ -77,10 +168,23 @@
 }
 
 .highlight_text {
-  font-family: 'Karla', 'Georgia', system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+  font-family:
+    "Karla",
+    "Georgia",
+    system-ui,
+    -apple-system,
+    BlinkMacSystemFont,
+    "Segoe UI",
+    Roboto,
+    Oxygen,
+    Ubuntu,
+    Cantarell,
+    "Open Sans",
+    "Helvetica Neue",
+    sans-serif;
   font-size: 16px;
   font-weight: var(--font-bold);
-  color: #EE9972;
+  color: #ee9972;
 }
 
 /*
@@ -88,7 +192,7 @@ Button1 CSS
 */
 .button1-container {
   display: inline-block;
-  background-color: #F4CE14;
+  background-color: #f4ce14;
   width: 120px;
   height: 30px;
   border: none;
@@ -110,7 +214,7 @@ Chicago CSS
 */
 .chicago {
   height: 400px;
-  background-color: #FBDABB;
+  background-color: #fbdabb;
   display: flex;
   justify-content: center;
   align-items: center;
@@ -127,7 +231,7 @@ Menu CSS
 */
 .menu {
   height: 400px;
-  background-color: #FBDABB;
+  background-color: #fbdabb;
   display: flex;
   justify-content: center;
   align-items: center;
@@ -144,7 +248,7 @@ OnlineOrder CSS
 */
 .online_order_container {
   height: 400px;
-  background-color: #FBDABB;
+  background-color: #fbdabb;
   display: flex;
   justify-content: center;
   align-items: center;
@@ -161,7 +265,7 @@ Login CSS
 */
 .login_container {
   height: 400px;
-  background-color: #FBDABB;
+  background-color: #fbdabb;
   display: flex;
   justify-content: center;
   align-items: center;
@@ -178,7 +282,7 @@ ConfirmedBooking CSS
 */
 .confirmed-booking {
   height: 400px;
-  background-color: #FBDABB;
+  background-color: #fbdabb;
   display: flex;
   justify-content: center;
   align-items: center;
@@ -191,5 +295,5 @@ ConfirmedBooking CSS
 }
 
 a:hover {
-  background-color: #FBDABB;
+  background-color: #fbdabb;
 }
