@@ -199,7 +199,7 @@ function BookingForm({ availableTimes, dispatchOnDateChange, submitForm }) {
               formik.handleSubmit();
             }}
             onKeyDown={(e) => {
-              if (e.key == "Enter" || e.key == " ") {
+              if (e.key === "Enter" || e.key === " ") {
                 submitForm(e, formik.values);
                 formik.handleSubmit();
               }
