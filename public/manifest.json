@@ -16,6 +16,11 @@
       "src": "logo512.png",
       "type": "image/png",
       "sizes": "512x512"
+    },
+    {
+      "src": "little-lemon-logo.ico",
+      "sizes": "256x256 128x128 64x64 48x48 32x32 16x16",
+      "type": "image/x-icon"
     }
   ],
   "start_url": ".",
